@@ -17,5 +17,15 @@ class Slider extends Model
         'prioridad',
         'link',
         'status_id',
+        'prioridad_id'
     ];
+
+    public function status(){
+        return $this->belongsTo(Status::class,'status_id');
+    }
+
+    public function prioridad(){
+        return $this->belongsTo(Prioridad::Class,'prioridad_id');
+    }
+    
 }

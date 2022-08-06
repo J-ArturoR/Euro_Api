@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Flyer extends Model
 {
+    
     use HasFactory;
     protected $fillable=[
         'imagen_portada',
@@ -24,10 +25,11 @@ class Flyer extends Model
         return $this->belongTo(Circuito::class, 'circuito_id','id');
     }
     public function status(){
-        return $this->belongTo(Status::class, 'status_id','id');
+        return $this->belongsto(Status::class);
     }
 
     public function prioridad(){
         return $this->belongTo(Prioridad::class, 'prioridad_id','id');
     }
+
 }

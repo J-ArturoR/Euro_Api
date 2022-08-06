@@ -12,4 +12,8 @@ class TextoSlider extends Model
         'texto',
         'status_id',
     ];
+
+    public function status(){
+        return $this->belongsTo(Status::class,'status_id');
+    }
 }

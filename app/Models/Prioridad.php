@@ -25,5 +25,7 @@ class Prioridad extends Model
     public function protocolo(){
         return $this->belongsTo(Protocolo::class,'prioridad_id');
     }
-
+    public function slider(){
+        return $this->hasMany(Slider::class,'id');
+    }
 }

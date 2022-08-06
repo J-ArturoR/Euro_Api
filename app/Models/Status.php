@@ -26,7 +26,7 @@ class Status extends Model
     }
 
     public function flyer(){
-        return $this->belongTo(Flyer::class, 'status_id','id');
+        return $this->hasMany(Flyer::class);
     }
     public function itinerariocir(){
         return $this->belongTo(ItinerarioCircuito::class, 'status_id','id');
@@ -42,5 +42,12 @@ class Status extends Model
         return $this->belongTo(Protocolo::class,'status_id');
     }
 
+    public function slider(){
+        return $this->hasMany(Protocolo::class,'id');
+    }
+
+    public function txtslider(){
+        return $this->hasMany(TextoSlider::class,'id');
+    }
     
 }

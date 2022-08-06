@@ -11,14 +11,8 @@ class FlyerController extends Controller
  
     public function index()
     {
-      /*  $flyers=DB::table('flyers as f')
-                    ->join('statuses as s','f.status_id',"=",'s.id')
-                    ->join('prioridads as p','f.prioridad_id',"=",'p.id')
-                    ->select('f.imagen_portada','f.titulo','s.name_status','f.personalizable','f.fecha_apertura','f.fecha_vigencia','p.nombre','f.salidas')
-                    ->get();  */
-        $flyers=Flyer::join('statuses','statuses.id',"=",'flyers.status_id')->select("*")->get();
-
-
+      
+        $flyers=Flyer::with('status')->with('circuito')->with('prioridad')->get();
         return $flyers;
     }
  

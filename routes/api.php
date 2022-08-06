@@ -139,7 +139,7 @@ Route::controller(Slider::class)->group( function (){
     Route::delete('/slider/destroy/{id}','destroy');
 });
 
-Route::controller(TextSlider::class)->group(function (){
+Route::controller(TxtSlider::class)->group(function (){
     Route::get('/txtslider','index');
     Route::post('/txtslider/store','store');
     Route::get('/txtslider/{id}','show');
