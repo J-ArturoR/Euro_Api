@@ -34,7 +34,7 @@ class CatalogoController extends Controller
 
     public function show($id)
     {
-        $catalogo=Catalogo::find($id);
+        $catalogo=Catalogo::with('status')->find($id);
         return $catalogo;
     }
 

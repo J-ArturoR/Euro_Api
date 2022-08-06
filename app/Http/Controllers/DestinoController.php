@@ -36,7 +36,7 @@ class DestinoController extends Controller
  
     public function show($id)
     {
-        $destino= Destino::find($id);
+        $destino= Destino::with('status')->with('categoria')->find($id);
         return $destino;
     }
  

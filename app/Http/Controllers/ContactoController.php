@@ -30,7 +30,7 @@ class ContactoController extends Controller
  
     public function show($id)
     {
-        $contacto=Contacto::find($id);
+        $contacto=Contacto::with('status')->find($id);
         return $contacto;
     }
  

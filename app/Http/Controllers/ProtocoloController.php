@@ -29,7 +29,7 @@ class ProtocoloController extends Controller
  
     public function show($id)
     {
-        $protocolo=Protocolo::find($id);
+        $protocolo=Protocolo::with('status')->with('prioridad')->with('tipo')->find($id);
         return $protocolo;
     }
  

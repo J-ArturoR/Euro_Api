@@ -33,7 +33,7 @@ class FlyerController extends Controller
  
     public function show($id)
     {
-        $flyer=Flyer::find($id);
+        $flyer=Flyer::with('status')->with('circuito')->with('prioridad')->find($id);
         return $flyer;
     }
  

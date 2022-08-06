@@ -10,26 +10,15 @@ class CircuitoController extends Controller
 {
     public function index()
     {
-        $circuitos=Circuito::with('tipo')->with('flyer')->with('catalogo')->with('prioridad')->with('status')->with('categoria')->select('*')->get();              
+        $circuitos=Circuito::with('tipo')->with('flyer')->with('catalogo')->with('prioridad')->with('status')->with('categoria')->get();              
         return $circuitos;
-    /* 
-       DB::table('circuitos as c')
-        ->join('iconografias as i','c.iconografia_id',"=",'i.id')
-        ->join('tipo__productos as tp','c.tipo_id',"=",'tp.id')
-        ->join('flyers as f','c.flyer_id',"=",'f.id')
-        ->join('catalogos as cat','c.catalogo_id',"=",'cat.id')
-        ->join('prioridads as p','c.prioridad_id',"=",'p.id')
-        ->join('itinerario_circuitos as it','c.id',"=",'it.id')
-        ->join('statuses as s','c.status_id',"=",'s.id')
-        ->join('categorias as cg','c.categoria_id',"=",'cg.id')
-        ->select('*')->get();
-    */
+  
     }
  
     public function store(Request $request)
     {
         $circuito = new Circuito();
-        $circuito->titulo           = $request->titulo;
+        $circuito->titulo_circuito           = $request->titulo_circuito;
         $circuito->tipo_id          = $request->tipo_id;
         $circuito->duracion         = $request->duracion;
         $circuito->fecha_inicio     = $request->fecha_inicio;
@@ -42,6 +31,11 @@ class CircuitoController extends Controller
         $circuito->img_portada      = $request->img_portada;
         $circuito->img_mapa         = $request->img_mapa;
         $circuito->pdf              = $request->pdf;
+        $circuito->vuelo            = $request->vuelo;
+        $circuito->traslado         = $request->traslado;
+        $circuito->alojamiento      = $request->alojamiento;
+        $circuito->maleta           = $request->maleta;
+        $circuito->impuesto         = $request->impuesto;
         $circuito->pdf_condiciones  = $request->pdf_condiciones;
         $circuito->iconografia_id   = $request->iconografia_id;
         $circuito->flyer_id         = $request->flyer_id;
@@ -56,15 +50,14 @@ class CircuitoController extends Controller
  
     public function show($id)
     {
-        $circuito=Circuito::find($id);
-        $incluye=ItinerarioCircuito::select("*")->where('circuito_id','=',$id)->get();
+        $circuito=Circuito::with('tipo')->with('flyer')->with('catalogo')->with('prioridad')->with('status')->with('categoria')->find($id);
         return $circuito;
     }
  
     public function update(Request $request )
     {
         $circuito=Circuito::findOrFail($request->id);
-        $circuito->titulo           = $request->titulo;
+        $circuito->titulo_circuito           = $request->titulo_circuito;
         $circuito->tipo_id          = $request->tipo_id;
         $circuito->duracion         = $request->duracion;
         $circuito->fecha_inicio     = $request->fecha_inicio;
@@ -77,6 +70,11 @@ class CircuitoController extends Controller
         $circuito->img_portada      = $request->img_portada;
         $circuito->img_mapa         = $request->img_mapa;
         $circuito->pdf              = $request->pdf;
+        $circuito->vuelo            = $request->vuelo;
+        $circuito->traslado         = $request->traslado;
+        $circuito->alojamiento      = $request->alojamiento;
+        $circuito->maleta           = $request->maleta;
+        $circuito->impuesto         = $request->impuesto;
         $circuito->pdf_condiciones  = $request->pdf_condiciones;
         $circuito->iconografia_id   = $request->iconografia_id;
         $circuito->flyer_id         = $request->flyer_id;

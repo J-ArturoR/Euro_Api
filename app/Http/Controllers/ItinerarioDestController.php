@@ -25,7 +25,7 @@ class ItinerarioDestController extends Controller
  
     public function show($id)
     {
-        $itineriarioDestino=ItinerarioDestino::find($id);
+        $itineriarioDestino=ItinerarioDestino::with('status')->with('destino')->find($id);
         return $itineriarioDestino;
     }
  

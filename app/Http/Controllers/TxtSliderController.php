@@ -24,7 +24,7 @@ class TxtSliderController extends Controller
  
     public function show($id)
     {
-        $txtSlider=TextoSlider::find($id);
+        $txtSlider=TextoSlider::with('status')->find($id);
         return $txtSlider;
 
     }

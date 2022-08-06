@@ -37,7 +37,7 @@ class PaqueteController extends Controller
  
     public function show($id)
     {
-        $paquete=Paquete::find($id);
+        $paquete=Paquete::with('prioridad')->with('status')->with('tipo')->find($id);
         return $paquete;
     }
  

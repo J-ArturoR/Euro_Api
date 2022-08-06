@@ -27,7 +27,7 @@ class ItinerarioCirController extends Controller
  
     public function show($id)
     {
-        $itinerarioCircuito=ItinerarioCircuito::find($id);
+        $itinerarioCircuito=ItinerarioCircuito::with('status')->with('circuito')->find($id);
         return $itinerarioCircuito;
     }
  
