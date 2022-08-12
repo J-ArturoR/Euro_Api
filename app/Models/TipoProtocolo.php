@@ -13,6 +13,6 @@ class TipoProtocolo extends Model
         'descripcion',
     ];
     public function protocolo() {
-        return $this->belongsTo(Protocolo::class,'tipo_protocoloid');
+        return $this->hasMany(Protocolo::class,'id');
     }
 }

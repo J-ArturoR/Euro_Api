@@ -12,18 +12,18 @@ class Prioridad extends Model
         'nombre_prioridad',
     ];
     public function circuito(){
-        return $this->belongTo(Circuito::class, 'circuito_id','id');
+        return $this->hasMany(Circuito::class,'id');
     }
 
     public function flyer(){
-        return $this->belongTo(Flyer::class, 'prioridad_id','id');
+        return $this->belongTo(Flyer::class,'id');
     }
 
     public function paquete(){
-        return $this->belongsTo(Paquete::class,'prioridad_id');
+        return $this->hasMany(Paquete::class,'id');
     }
     public function protocolo(){
-        return $this->belongsTo(Protocolo::class,'prioridad_id');
+        return $this->hasMany(Protocolo::class,'id');
     }
     public function slider(){
         return $this->hasMany(Slider::class,'id');

@@ -26,11 +26,11 @@ class Destino extends Model
     ];
 
     public function status(){
-        return $this->hasMany(Status::class,'id');
+        return $this->belongsTo(Status::class,'staus_id');
     }
 
     public function categoria(){
-        return $this->hasMany(Categoria::class,'id');
+        return $this->belongsTo(Categoria::class,'categoria_id');
     }
 
     public function itinerarios(){

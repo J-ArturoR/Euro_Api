@@ -11,10 +11,10 @@ class Categoria extends Model
     protected $fillable=['nombre_categoria'];
     
     public function circuito(){
-        return $this->belongTo(Circuito::class, 'circuito_id','id');
+        return $this->hasMany(Circuito::class,'id');
     }
     public function destino(){
-        return $this->belongTo(Destino::class, 'destino_id','id');
+        return $this->hasMany(Destino::class, 'id');
     }
 
 }

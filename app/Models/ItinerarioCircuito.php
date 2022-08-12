@@ -16,7 +16,7 @@ class ItinerarioCircuito extends Model
         'circuito_id',
     ];
     public function status(){
-        return $this->hasMany(Status::class,'id');
+        return $this->belongsTo(Status::class,'status_id');
     }
 
     public function circuito()

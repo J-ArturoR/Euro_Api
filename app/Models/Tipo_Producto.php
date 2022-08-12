@@ -14,11 +14,11 @@ class Tipo_Producto extends Model
     ];
 
     public function circuito(){
-        return $this->belongTo(Circuito::class, 'circuito_id');
+        return $this->hasMany(Circuito::class, 'id');
     }
 
     public function paquete(){
-        return $this->belongTo(Paquete::class,'tipo_id');
+        return $this->hasMany(Paquete::class,'id');
     }
 
     

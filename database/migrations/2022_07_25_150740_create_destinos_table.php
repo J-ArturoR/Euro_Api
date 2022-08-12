@@ -27,13 +27,13 @@ return new class extends Migration
             $table->string('maleta')->nullable();
             $table->string('impuesto')->nullable();
            // $table->bigInteger('incluye_id')->unsigned()->nullable();
-            $table->bigInteger('staus_id')->unsigned()->nullable();
+            $table->bigInteger('status_id')->unsigned()->nullable();
             $table->bigInteger('categoria_id')->unsigned()->nullable();
 
             $table->timestamps();
 
            // $table->foreign('img_id')->references('id')->on('img_destinos')->onDelete('cascade');
-            $table->foreign('staus_id')->references('id')->on('statuses')->onDelete('cascade');
+            $table->foreign('status_id')->references('id')->on('statuses')->onDelete('cascade');
             $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
         });
     }

@@ -29,15 +29,15 @@ class Paquete extends Model
     ];
 
     public function prioridad(){
-        return $this->hasMany(Prioridad::class,'id');
+        return $this->belongsTo(Prioridad::class,'prioridad_id');
     }
 
     public function status(){
-        return $this->hasMany(Status::class,'id');
+        return $this->belongsTo(Status::class,'status');
     }
 
     public function tipo(){
-        return $this->hasMany(Tipo_Producto::class,'id');
+        return $this->belongsTo(Tipo_Producto::class,'tipo_id');
     }
 
 }

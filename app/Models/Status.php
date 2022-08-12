@@ -11,39 +11,39 @@ class Status extends Model
     protected $fillable=['name_status'];
 
    public function catalogo(){
-        return $this->belongTo(Catalogo::class, 'status_id','id');
+        return $this->hasMany(Catalogo::class,'id');
     }
     public function circuito(){
-        return $this->belongTo(Circuito::class, 'circuito_id','id');
+        return $this->hasMany(Circuito::class,'id');
     }
 
     public function contacto(){
-        return $this->belongTo(Contacto::class, 'status_id','id');
+        return $this->hasMany(Contacto::class,'id');
     }
 
     public function destino(){
-        return $this->belongTo(Destino::class, 'status_id','id');
+        return $this->hasMany(Destino::class,'id');
     }
 
     public function flyer(){
-        return $this->hasMany(Flyer::class);
+        return $this->hasMany(Flyer::class,'id');
     }
     public function itinerariocir(){
-        return $this->belongTo(ItinerarioCircuito::class, 'status_id','id');
+        return $this->hasMany(ItinerarioCircuito::class, 'id');
     }
     public function itinerariodes(){
-        return $this->belongTo(ItinerarioDestino::class, 'status_id','id');
+        return $this->hasMany(ItinerarioDestino::class, 'id');
     }
 
     public function paquetes(){
-        return $this->belongTo(Paquete::class, 'status_id');
+        return $this->hasMany(Paquete::class, 'id');
     }
     public function protocolo(){
-        return $this->belongTo(Protocolo::class,'status_id');
+        return $this->hasMany(Protocolo::class,'id');
     }
 
     public function slider(){
-        return $this->hasMany(Protocolo::class,'id');
+        return $this->hasMany(Slider::class,'id');
     }
 
     public function txtslider(){

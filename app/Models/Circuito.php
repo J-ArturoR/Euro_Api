@@ -29,7 +29,6 @@ class Circuito extends Model
         'maleta',
         'impuesto',
 
-
         'pdf_condiciones',
         'iconografia_id',
         'flyer_id',
@@ -43,35 +42,36 @@ class Circuito extends Model
 
     //tipo_id
     public function tipo(){
-        return $this->hasMany(Tipo_Producto::class,'id');
+        return $this->belongsTo(Tipo_Producto::class,'tipo_id');
     }
 
     //flyer_id
     public function flyer(){
-        return $this->hasMany(Flyer::class,'id');
+        return $this->belongsTo(Flyer::class,'flyer_id');
     }
 
     //catalogo_id
     public function catalogo(){
-        return $this->hasMany(Catalogo::class,'id');
+        return $this->belongsTo(Catalogo::class,'catalogo_id');
     }
 
     //prioridad_id
     public function prioridad(){
-        return $this->hasMany(Prioridad::class,'id');
+        return $this->belongsTo(Prioridad::class,'prioridad_id');
     }
 
     //itinerario_id
 
     //status_id
     public function status(){
-        return $this->hasMany(Status::class,'id');
+        return $this->belongsTo(Status::class,'status_id');
     }
     //categoria_id
     public function categoria(){
-        return $this->hasMany(Categoria::class,'id');
+        return $this->belongsTo(Categoria::class,'categoria_id');
     }
 
+    
     public function itinerarios(){
         return $this->hasMany(ItinerarioCircuito::class);
     }

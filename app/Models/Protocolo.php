@@ -19,13 +19,13 @@ class Protocolo extends Model
     ];
 
     public function status(){
-        return $this->hasMany(Status::class,'id');
+        return $this->belongsTo(Status::class,'status_id');
     }
     public function prioridad(){
-        return $this->hasMany(Prioridad::class,'id');
+        return $this->belongsTo(Prioridad::class,'prioridad_id');
     }
     public function tipo(){
-        return $this->hasMany(TipoProtocolo::class,'id');
+        return $this->belongsTo(TipoProtocolo::class,'tipo_protocoloid');
     }
 
 

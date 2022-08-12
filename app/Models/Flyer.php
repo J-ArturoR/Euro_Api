@@ -17,19 +17,19 @@ class Flyer extends Model
         'fecha_apertura',
         'fecha_vigencia',
         'prioridad_id',
-       // 'paquete_id',
+       //'paquete_id',
         'salidas',
     ];
 
     public function circuito(){
-        return $this->belongTo(Circuito::class, 'circuito_id','id');
+        return $this->belongsTo(Circuito::class,'id');
     }
     public function status(){
-        return $this->belongsto(Status::class);
+        return $this->belongsto(Status::class,'status_id');
     }
 
     public function prioridad(){
-        return $this->belongTo(Prioridad::class, 'prioridad_id','id');
+        return $this->belongsTo(Prioridad::class, 'prioridad_id');
     }
 
 }

@@ -16,11 +16,11 @@ class Catalogo extends Model
     ];
 
     public function status(){
-        return $this->hasMany(Status::class,'id');
+        return $this->belongsTo(Status::class,'status_id');
     }
 
     public function circuito(){
-        return $this->belongTo(Circuito::class, 'circuito_id','id');
+        return $this->hasMany(Circuito::class,'id');
     }
 
 

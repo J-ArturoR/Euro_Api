@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('titulo_paquete')->nullable();
             $table->string('apertura')->nullable();
             $table->string('fin')->nullable();
-            $table->string('status_id')->nullable();
+            $table->bigInteger('status_id')->unsigned()->nullable();
             $table->bigInteger('tipo_id')->unsigned()->nullable();
             $table->string('vuelo')->nullable();
             $table->string('traslado')->nullable();

@@ -18,6 +18,6 @@ class Contacto extends Model
     ];
 
     public function status(){
-        return $this->hasMany(Status::class,'id');
+        return $this->belongsTo(Status::class,'status_id');
     }
 }
