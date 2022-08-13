@@ -10,7 +10,7 @@ class Flyer extends Model
     
     use HasFactory;
     protected $fillable=[
-        'imagen_portada',
+        'img_portada',
         'titulo_flyer',
         'status_id',
         'personalizable',

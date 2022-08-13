@@ -18,7 +18,7 @@ class CircuitoController extends Controller
     public function store(Request $request)
     {
         $circuito = new Circuito();
-        $circuito->titulo_circuito           = $request->titulo_circuito;
+        $circuito->titulo_circuito  = $request->titulo_circuito;
         $circuito->tipo_id          = $request->tipo_id;
         $circuito->duracion         = $request->duracion;
         $circuito->fecha_inicio     = $request->fecha_inicio;
